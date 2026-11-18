@@ -151,7 +151,7 @@ export const api = {
     if (!user) throw new Error('Profile update failed.');
     return { user };
   },
-  requestPasswordReset: async (email: string) => {
+  requestPasswordReset: async (email: string): Promise<{ message: string; demoResetCode?: string }> => {
     const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
     fail(error);
     return { message: 'Password reset email sent. Open the email link, then enter the recovery code from the email here.' };
