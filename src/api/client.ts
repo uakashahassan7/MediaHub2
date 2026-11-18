@@ -343,7 +343,7 @@ export const api = {
     settings.ownerNameUr = payload.ownerNameUr;
     return { settings };
   },
-  analyzeContent: async (_contentId: string, _question: string, _lang: Language) => {
+  analyzeContent: async (_contentId: string, _question: string, _lang: Language): Promise<{ answer: string }> => {
     throw new Error('AI analysis is not configured on this deployment yet.');
   },
 };
