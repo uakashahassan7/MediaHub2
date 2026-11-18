@@ -1,0 +1,6 @@
+{
+  "name": "MediaHub",
+  "description": "Bilingual Urdu and English creator media platform for videos, visual photography, and long-form editorial articles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
