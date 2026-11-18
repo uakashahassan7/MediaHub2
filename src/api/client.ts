@@ -210,6 +210,7 @@ export const api = {
     fail(error);
     const { data, error: readError } = await supabase.from('content_items').select('view_count').eq('id', id).single();
     fail(readError);
+    if (!data) throw new Error('Content item not found.');
     return { viewCount: Number(data.view_count || 0) };
   },
   reactToContent: async (id: string, type: ReactionType) => {
@@ -229,6 +230,7 @@ export const api = {
     }
     const { data, error } = await supabase.from('content_items').select('likes_count,dislikes_count').eq('id', id).single();
     fail(error);
+    if (!data) throw new Error('Content item not found.');
     const latest = await supabase.from('reactions').select('type').eq('user_id', auth.user.id).eq('content_id', id).maybeSingle();
     return { likesCount: data.likes_count, dislikesCount: data.dislikes_count, userReaction: latest.data?.type || null };
   },
@@ -242,6 +244,7 @@ export const api = {
   deleteComment: async (commentId: string) => {
     const found = await supabase.from('comments').select('content_id').eq('id', commentId).single();
     fail(found.error);
+    if (!found.data) throw new Error('Comment not found.');
     const { error } = await supabase.from('comments').delete().eq('id', commentId);
     fail(error);
     return { ok: true, comments: await commentsFor(found.data.content_id) };
