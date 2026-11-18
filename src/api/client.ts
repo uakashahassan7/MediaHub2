@@ -58,8 +58,6 @@ async function currentProfile(): Promise<UserProfile | null> {
     fail(result.error);
     row = result.data;
   }
-  // One-time safe bootstrap: the first authenticated account can claim the empty admin seat.
-  await supabase.rpc('claim_first_admin');
   const refreshed = await supabase.from('profiles').select('*').eq('id', user.id).single();
   fail(refreshed.error);
   return mapProfile(refreshed.data, user.email || '');
