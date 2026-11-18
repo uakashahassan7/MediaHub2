@@ -10,7 +10,7 @@ The browser client uses the public Supabase URL and publishable key from (public
 
 The configured public defaults point to the MediaHub Supabase project. Never add a service-role or secret key to frontend variables.
 
-The first account that successfully signs in after the admin bootstrap migration is applied can claim the empty administrator role. All later signups are viewers. Configure Supabase Auth email confirmation and password recovery templates before production use.
+New registrations are viewers by default. Promote the site owner's profile to `admin` only through trusted Supabase SQL after verifying the owner's account; never expose role promotion in the browser. Configure Supabase Auth email confirmation and password recovery templates before production use.
 
 ## Build and deploy
 
