@@ -239,28 +239,6 @@ export function AuthModal() {
               {t(lang, 'submitSignIn')}
             </button>
 
-            <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail('admin@mediahub.local');
-                  setPassword('Admin123!');
-                }}
-                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 underline underline-offset-4"
-              >
-                {t(lang, 'demoAdminFill')}
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail('viewer@mediahub.local');
-                  setPassword('Viewer123!');
-                }}
-                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 underline underline-offset-4"
-              >
-                {t(lang, 'demoViewerFill')}
-              </button>
-            </div>
           </form>
         )}
 
