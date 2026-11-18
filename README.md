@@ -4,7 +4,7 @@ Bilingual Urdu/English media platform built with React, Vite, Supabase and Cloud
 
 ## Supabase
 
-The browser client uses the public Supabase URL and publishable key from:
+The browser client uses the public Supabase URL and publishable key from (public defaults are supplied for this project):
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_ANON_KEY`
 
